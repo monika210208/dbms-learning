@@ -1,55 +1,66 @@
-body {
-font-family: Arial;
-margin: 0;
-background: #eef2f7;
+// NAVIGATION
+function show(id){
+document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
 }
 
-header {
-background: #1e3a5f;
-color: white;
-padding: 20px;
-text-align: center;
+// TOGGLE
+function toggle(id){
+let el = document.getElementById(id);
+el.classList.toggle("hidden");
 }
 
-nav {
-display: flex;
-justify-content: center;
-background: #34495e;
-flex-wrap: wrap;
+// SQL SIMULATOR
+function runQuery(){
+let q = document.getElementById("query").value.toLowerCase();
+let out = document.getElementById("output");
+
+if(q.includes("select")){
+out.innerHTML = "📊 Showing sample table:<br>ID | Name<br>1 | Monika<br>2 | Ram";
+}
+else if(q.includes("insert")){
+out.innerHTML = "✅ Insert successful";
+}
+else if(q.includes("update")){
+out.innerHTML = "🔄 Update successful";
+}
+else if(q.includes("delete")){
+out.innerHTML = "❌ Delete successful";
+}
+else{
+out.innerHTML = "⚠️ Invalid query";
+}
 }
 
-nav button {
-padding: 10px;
-border: none;
-background: none;
-color: white;
-cursor: pointer;
+// QUIZ
+const quiz=[
+{q:"What is DBMS?",o:["Software","Hardware"],a:0},
+{q:"1NF removes?",o:["Repeating groups","Keys"],a:0},
+{q:"SQL command to fetch data?",o:["SELECT","DELETE"],a:0}
+];
+
+let i=0,score=0;
+
+function loadQuiz(){
+let q=quiz[i];
+document.getElementById("q").innerText=q.q;
+
+let opts=document.getElementById("opts");
+opts.innerHTML="";
+
+q.o.forEach((opt,index)=>{
+let b=document.createElement("button");
+b.innerText=opt;
+b.onclick=()=>check(index);
+opts.appendChild(b);
+});
 }
 
-nav button:hover {
-background: #1abc9c;
+function check(ans){
+if(ans===quiz[i].a) score++;
+i++;
+if(i<quiz.length) loadQuiz();
+else document.getElementById("score").innerText="Score: "+score;
 }
 
-section {
-padding: 20px;
-}
-
-.hidden {
-display: none;
-}
-
-button {
-margin: 5px;
-padding: 8px;
-}
-
-textarea {
-width: 100%;
-height: 100px;
-}
-
-#output {
-margin-top: 10px;
-background: white;
-padding: 10px;
-}
+loadQuiz();
