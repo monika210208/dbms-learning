@@ -2,44 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DBMS Learning Hub</title>
+    <title>DBMS Learning App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <h1>📚 DBMS Learning Hub</h1>
-    <p>Learn Database Concepts + Practice SQL</p>
+    <h1>📚 DBMS Learning App</h1>
 </header>
 
-<section class="card">
-    <h2>What is DBMS?</h2>
-    <p>A Database Management System (DBMS) helps store, manage, and retrieve data efficiently.</p>
-</section>
+<nav>
+    <button onclick="showTab('learn')">Learn</button>
+    <button onclick="showTab('sql')">SQL Practice</button>
+    <button onclick="showTab('quiz')">Quiz</button>
+</nav>
 
-<section class="card">
-    <h2>Types of DBMS</h2>
+<!-- LEARN -->
+<section id="learn" class="tab">
+    <h2>What is DBMS?</h2>
+    <p>DBMS helps manage and organize data efficiently.</p>
+
+    <h3>Key Concepts</h3>
     <ul>
-        <li>Hierarchical</li>
-        <li>Network</li>
-        <li>Relational (RDBMS)</li>
-        <li>NoSQL</li>
+        <li>Tables</li>
+        <li>Primary Key</li>
+        <li>Foreign Key</li>
+        <li>Normalization</li>
     </ul>
 </section>
 
-<section class="card">
-    <h2>Try SQL (Simulation)</h2>
-
-    <textarea id="query" placeholder="Enter SQL query..."></textarea>
-    <button onclick="runQuery()">Run Query</button>
-
+<!-- SQL -->
+<section id="sql" class="tab hidden">
+    <h2>SQL Simulator</h2>
+    <textarea id="query" placeholder="Try: SELECT * FROM students"></textarea>
+    <button onclick="runQuery()">Run</button>
     <div id="result"></div>
 </section>
 
-<footer>
-    <p>Made for learning DBMS 🚀</p>
-</footer>
+<!-- QUIZ -->
+<section id="quiz" class="tab hidden">
+    <h2>Quick Quiz</h2>
+    <p id="question"></p>
+    <div id="answers"></div>
+    <p id="score"></p>
+</section>
 
 <script src="script.js"></script>
 </body>
