@@ -1,58 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>DBMS Pro Learning</title>
+<title>DBMS Mastery</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<header>
+<h1>📚 DBMS Mastery Platform</h1>
+<p>Learn DBMS from basics to advanced</p>
+</header>
 
-    <!-- SIDEBAR -->
-    <aside>
-        <h2>📚 DBMS Pro</h2>
-        <button onclick="showPage('dashboard')">Dashboard</button>
-        <button onclick="showPage('learn')">Learn</button>
-        <button onclick="showPage('sql')">SQL Lab</button>
-        <button onclick="showPage('quiz')">Quiz</button>
-        <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
-    </aside>
+<nav>
+<button onclick="show('intro')">Intro</button>
+<button onclick="show('ermodel')">ER Model</button>
+<button onclick="show('relational')">Relational</button>
+<button onclick="show('normalization')">Normalization</button>
+<button onclick="show('sql')">SQL</button>
+<button onclick="show('quiz')">Quiz</button>
+</nav>
 
-    <!-- MAIN CONTENT -->
-    <main>
+<!-- INTRO -->
+<section id="intro">
+<h2>📘 What is DBMS?</h2>
+<p>A DBMS is software that manages databases efficiently.</p>
 
-        <!-- DASHBOARD -->
-        <section id="dashboard" class="page">
-            <h1>Welcome 👋</h1>
-            <p>Learn DBMS interactively like a pro.</p>
-        </section>
+<ul>
+<li>Data storage</li>
+<li>Security</li>
+<li>Data retrieval</li>
+</ul>
+</section>
 
-        <!-- LEARN -->
-        <section id="learn" class="page hidden">
-            <h1>Concept Explorer</h1>
-            <div id="concepts"></div>
-        </section>
+<!-- ER MODEL -->
+<section id="ermodel" class="hidden">
+<h2>📊 ER Model</h2>
+<button onclick="toggle('er1')">Entities</button>
+<div id="er1" class="hidden">Objects like Student, Course</div>
 
-        <!-- SQL LAB -->
-        <section id="sql" class="page hidden">
-            <h1>SQL Lab</h1>
-            <textarea id="query" placeholder="Try: SELECT * FROM students"></textarea>
-            <button onclick="runQuery()">Run Query</button>
-            <div id="output"></div>
-        </section>
+<button onclick="toggle('er2')">Attributes</button>
+<div id="er2" class="hidden">Properties like Name, Age</div>
 
-        <!-- QUIZ -->
-        <section id="quiz" class="page hidden">
-            <h1>Quiz</h1>
-            <p id="q"></p>
-            <div id="options"></div>
-            <p id="score"></p>
-        </section>
+<button onclick="toggle('er3')">Relationships</button>
+<div id="er3" class="hidden">Links between entities</div>
+</section>
 
-    </main>
-</div>
+<!-- RELATIONAL -->
+<section id="relational" class="hidden">
+<h2>📋 Relational Model</h2>
+<p>Data is stored in tables (relations).</p>
+<ul>
+<li>Rows = Tuples</li>
+<li>Columns = Attributes</li>
+</ul>
+</section>
+
+<!-- NORMALIZATION -->
+<section id="normalization" class="hidden">
+<h2>📉 Normalization</h2>
+
+<button onclick="toggle('nf1')">1NF</button>
+<div id="nf1" class="hidden">No repeating groups</div>
+
+<button onclick="toggle('nf2')">2NF</button>
+<div id="nf2" class="hidden">No partial dependency</div>
+
+<button onclick="toggle('nf3')">3NF</button>
+<div id="nf3" class="hidden">No transitive dependency</div>
+</section>
+
+<!-- SQL -->
+<section id="sql" class="hidden">
+<h2>💻 SQL Playground</h2>
+
+<textarea id="query" placeholder="Try: SELECT * FROM students"></textarea>
+<button onclick="runQuery()">Run</button>
+
+<div id="output"></div>
+
+<h3>Common Queries</h3>
+<pre>
+SELECT * FROM students;
+INSERT INTO students VALUES (1, 'Monika');
+UPDATE students SET name='Ram';
+DELETE FROM students;
+</pre>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="hidden">
+<h2>🧠 Quiz</h2>
+<p id="q"></p>
+<div id="opts"></div>
+<p id="score"></p>
+</section>
 
 <script src="script.js"></script>
 </body>
