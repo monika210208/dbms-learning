@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>DBMS Learning App</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>DBMS Pro Learning</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>📚 DBMS Learning App</h1>
-</header>
+<div class="container">
 
-<nav>
-    <button onclick="showTab('learn')">Learn</button>
-    <button onclick="showTab('sql')">SQL Practice</button>
-    <button onclick="showTab('quiz')">Quiz</button>
-</nav>
+    <!-- SIDEBAR -->
+    <aside>
+        <h2>📚 DBMS Pro</h2>
+        <button onclick="showPage('dashboard')">Dashboard</button>
+        <button onclick="showPage('learn')">Learn</button>
+        <button onclick="showPage('sql')">SQL Lab</button>
+        <button onclick="showPage('quiz')">Quiz</button>
+        <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </aside>
 
-<!-- LEARN -->
-<section id="learn" class="tab">
-    <h2>What is DBMS?</h2>
-    <p>DBMS helps manage and organize data efficiently.</p>
+    <!-- MAIN CONTENT -->
+    <main>
 
-    <h3>Key Concepts</h3>
-    <ul>
-        <li>Tables</li>
-        <li>Primary Key</li>
-        <li>Foreign Key</li>
-        <li>Normalization</li>
-    </ul>
-</section>
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page">
+            <h1>Welcome 👋</h1>
+            <p>Learn DBMS interactively like a pro.</p>
+        </section>
 
-<!-- SQL -->
-<section id="sql" class="tab hidden">
-    <h2>SQL Simulator</h2>
-    <textarea id="query" placeholder="Try: SELECT * FROM students"></textarea>
-    <button onclick="runQuery()">Run</button>
-    <div id="result"></div>
-</section>
+        <!-- LEARN -->
+        <section id="learn" class="page hidden">
+            <h1>Concept Explorer</h1>
+            <div id="concepts"></div>
+        </section>
 
-<!-- QUIZ -->
-<section id="quiz" class="tab hidden">
-    <h2>Quick Quiz</h2>
-    <p id="question"></p>
-    <div id="answers"></div>
-    <p id="score"></p>
-</section>
+        <!-- SQL LAB -->
+        <section id="sql" class="page hidden">
+            <h1>SQL Lab</h1>
+            <textarea id="query" placeholder="Try: SELECT * FROM students"></textarea>
+            <button onclick="runQuery()">Run Query</button>
+            <div id="output"></div>
+        </section>
+
+        <!-- QUIZ -->
+        <section id="quiz" class="page hidden">
+            <h1>Quiz</h1>
+            <p id="q"></p>
+            <div id="options"></div>
+            <p id="score"></p>
+        </section>
+
+    </main>
+</div>
 
 <script src="script.js"></script>
 </body>
