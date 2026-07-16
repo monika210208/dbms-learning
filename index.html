@@ -22,74 +22,35 @@
 <button onclick="show('quiz')">Quiz</button>
 </nav>
 
-<!-- INTRO -->
 <section id="intro">
 <h2>📘 What is DBMS?</h2>
 <p>A DBMS is software that manages databases efficiently.</p>
-
-<ul>
-<li>Data storage</li>
-<li>Security</li>
-<li>Data retrieval</li>
-</ul>
 </section>
 
-<!-- ER MODEL -->
 <section id="ermodel" class="hidden">
 <h2>📊 ER Model</h2>
 <button onclick="toggle('er1')">Entities</button>
 <div id="er1" class="hidden">Objects like Student, Course</div>
-
-<button onclick="toggle('er2')">Attributes</button>
-<div id="er2" class="hidden">Properties like Name, Age</div>
-
-<button onclick="toggle('er3')">Relationships</button>
-<div id="er3" class="hidden">Links between entities</div>
 </section>
 
-<!-- RELATIONAL -->
 <section id="relational" class="hidden">
 <h2>📋 Relational Model</h2>
-<p>Data is stored in tables (relations).</p>
-<ul>
-<li>Rows = Tuples</li>
-<li>Columns = Attributes</li>
-</ul>
+<p>Data is stored in tables.</p>
 </section>
 
-<!-- NORMALIZATION -->
 <section id="normalization" class="hidden">
 <h2>📉 Normalization</h2>
-
 <button onclick="toggle('nf1')">1NF</button>
 <div id="nf1" class="hidden">No repeating groups</div>
-
-<button onclick="toggle('nf2')">2NF</button>
-<div id="nf2" class="hidden">No partial dependency</div>
-
-<button onclick="toggle('nf3')">3NF</button>
-<div id="nf3" class="hidden">No transitive dependency</div>
 </section>
 
-<!-- SQL -->
 <section id="sql" class="hidden">
 <h2>💻 SQL Playground</h2>
-
-<textarea id="query" placeholder="Try: SELECT * FROM students"></textarea>
+<textarea id="query"></textarea>
 <button onclick="runQuery()">Run</button>
-
 <div id="output"></div>
-
-<h3>Common Queries</h3>
-<pre>
-SELECT * FROM students;
-INSERT INTO students VALUES (1, 'Monika');
-UPDATE students SET name='Ram';
-DELETE FROM students;
-</pre>
 </section>
 
-<!-- QUIZ -->
 <section id="quiz" class="hidden">
 <h2>🧠 Quiz</h2>
 <p id="q"></p>
